@@ -1,0 +1,49 @@
+body{
+    background-color: #59c169;
+}
+
+a{
+    text-decoration: none;
+    color: #000;
+    text-transform: uppercase;
+}
+
+.tamano-imagen{
+    width: 150px;
+    height: auto;
+}
+
+.texto1{
+    font-size: 3rem;
+    font-weight: bold;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    text-align: center;
+}
+
+.img-red{
+    border-radius: 50%;
+}
+
+.mapa{
+    border: 49px solid #e65b5b;
+    border-top-left-radius: 58px;
+    border-bottom-right-radius: 20px;
+}
+
+
+.container-redes img{
+    border-radius: 50%;
+    margin: 0 35px
+}
+
+.texto-info{
+    color: #4fddf6;
+}
+
+td, tr, th{
+    border: 1px solid #000;
+}
+
+table {
+    border: 2px solid #fff;
+} 
