@@ -1,3 +1,32 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
+
+:root{
+    --color-rojo: #b0c861;
+    --tamano-letra: 1.5rem;
+    --tamano-letra-1: 1.6rem;
+    --tamano-letra-2: 1.9rem;
+    --tamano-letra-3: 0.5rem;
+    --tamano-letra-4: 1rem;
+    --color-naranja: #f18f32;
+}
+
+body *{
+    font-family: 'Montserrat', sans-serif;
+}
+
+[data-pie-pagina="true"] {
+    background-color: var(--color-rojo);
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    padding-top: 50px;
+    font-size: var(--tamano-letra-4);
+}
+
+a:active {
+    color: var(--color-rojo);
+}
+
 .navbar-restaurante {
     background-color: #3e3e3e;
     display: flex;
@@ -5,32 +34,32 @@
     align-items: center;
 }
 
-.navbar-restaurante *{
+.navbar-restaurante * {
     color: #fff;
 }
 
-.logo{
+.logo {
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-ul li{
+ul li {
     display: inline-block;
     margin: 0 20px;
 }
 
-.size-img-logo{
+.size-img-logo {
     width: 70px;
 }
 
-.banner{
+.banner {
     justify-content: center;
     display: flex;
     margin-top: 30px;
 }
 
-.container1{
+.container1 {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -38,7 +67,65 @@ ul li{
     margin-top: 50px;
 }
 
-.container1 div p{
+.container1 div p {
     padding-right: 25px;
     text-align: justify;
 }
+
+.container-recetas {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+
+.container-recetas div {
+    width: 25%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.container-recetas div p {
+    text-align: center;
+}
+
+
+[data-pie-pagina="true"] section img {
+    border-radius: 50%;
+}
+
+.container-redes {
+    margin: 30px 0 0;
+}
+
+.btn-mapa {
+    width: 350px;
+    height: 60px;
+    border-radius: 10px;
+    background-color: #15ddf3;
+    font-size: 2rem;
+}
+
+.mapa-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn-mapa {
+    transition: all 2s;
+}
+
+.btn-mapa:hover {
+    width: 500px;
+    background-color: #3af315;
+    font-weight: bold;
+}
+
+a:visited {
+    color: #f3d215;
+}
+
