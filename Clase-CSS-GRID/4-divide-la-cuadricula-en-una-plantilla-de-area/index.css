@@ -1,0 +1,50 @@
+/*
+    grid-template-areas => agrupa las celdas del grid en un área y personalizar su nombre
+
+    grid-area => después de crear la plantilla se utiliza para ubicar el elemento en el nombre personalizado que colocaste en la plantilla
+    También se puede utilizar sin crear una plantilla previamente utilizando los números de las líneas LH/LV/LH/LV
+
+
+    La función repeat() se usa para especificar cuantas veces se repite una fila o columna 
+    La función minmax() define un valor minimo y maximo para que tu elemento de row o column cambie de tamaño
+*/
+
+.container {
+    font-size: 40px;
+    width: 100%;
+    background: lightgray;
+    height: 100vh;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(20px, 200px));
+    /* grid-template-columns: repeat(100, 1fr 20px) auto; */
+    /* grid-template-columns: 1fr 20px 1fr 20px auto; */
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-gap: 10px;
+    /* añade aquí el grid-template-areas */
+    grid-template-areas: 
+        "header content content"
+        "footer footer footer"
+    ;
+
+    
+}
+.d1 {
+    background: aqua;
+    /* añade grid-area aquí */
+}
+.d2 {
+    background: blue;
+}
+.d3 {
+    background: coral;
+}
+.d4 {
+    background: cornflowerblue;
+    
+}
+.d5 {
+    background: brown;
+}
+.d6 {
+    background: orange;
+}

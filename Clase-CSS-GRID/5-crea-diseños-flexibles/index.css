@@ -1,0 +1,38 @@
+/*
+    auto-fill => opcion que se puede utilizar en la función repeat(), reemplazando el parámetro de cantidad, llena automaticamente la fila o la columna, sin embargo no soluciona el problema.
+
+    auto-fit
+*/
+.container {
+    font-size: 40px;
+    width: 100%;
+    background: lightgray;
+    height: 100vh;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 1fr);
+    grid-template-rows: repeat(1, auto);
+    grid-gap: 10px;
+}
+.d1 {
+    background: aqua;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* añade grid-area aquí */
+}
+.d2 {
+    background: blue;
+}
+.d3 {
+    background: coral;
+}
+.d4 {
+    background: cornflowerblue;
+    
+}
+.d5 {
+    background: brown;
+}
+.d6 {
+    background: orange;
+}

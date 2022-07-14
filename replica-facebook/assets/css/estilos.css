@@ -1,0 +1,43 @@
+:root{
+    --tipografia-facebook: SFProDisplay-Regular, Helvetica, Arial, sans-serif;
+    --color-azul-facebook:#1877f2;
+    --color-verde-facebook: #42b72a;
+    --color-gris-facebook: #f0f2f5;
+    --color-blanco: #ffffff;
+    --color-negro: #000000;
+    --color-azul-facebook-hover: #166fe5;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.contenedor{
+    display: grid;
+    grid-template-columns: repeat(2, 50%);
+}
+
+.formulario{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn-inicio-sesion{
+    width: 400px;/*lo van a cuadrar ustedes*/
+    height: 52px;
+    background-color: var(--color-azul-facebook);
+    color: var(--color-blanco);
+    font-size: 20px;
+    font-weight: bold;
+    border-radius: 6px;
+    border: none;
+    transition: all 200ms;
+}
+
+.btn-inicio-sesion:hover{
+    background-color: var(--color-azul-facebook-hover);
+}

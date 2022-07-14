@@ -1,0 +1,53 @@
+/*
+    fr => para fijar la columna o la fila a una fraccion del espacio disponible
+    auto =>  para fijar la columna o la fila al ancho de su contenido automáticamente
+    % => ajusta la columna o fila al porcentaje del contenedor
+    
+
+    Para crear espacios entre columnas se utiliza grid-column-gap
+
+    Para crear espacios entre columnas se utiliza grid-row-gap
+
+    grid-gap es una abreviación de las dos anteriores grid-gap: fila columna
+
+    grid-column => controla las columnas que ocupará de un elemento por medio de las líneas
+
+*/
+
+
+.container {
+    font-size: 40px;
+    width: 100%;
+    background: lightgray;
+    display: grid;
+    /* Editar grid-template-columns- */
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: auto auto;
+    /* añadir grid-column-gap*/
+    grid-gap: 50px 20px;
+    
+    /* añadir grid-row-gap */
+
+}
+.d1 {
+    background: aqua;
+    /* añade un grid-column aquí x / x */
+    grid-column: 3/4;
+    grid-row: 3/4;
+}
+.d2 {
+    background: blue;
+}
+.d3 {
+    background: coral;    
+}
+.d4 {
+    background: cornflowerblue;
+    /* añade un grid-row aquí */
+}
+.d5 {
+    background: brown;
+}
+.d6 {
+    background: orange;
+}

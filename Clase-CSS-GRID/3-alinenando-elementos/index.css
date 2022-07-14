@@ -1,0 +1,44 @@
+/*
+    justify-self => posiciona el contenido dentro de la celda horizontalmente, tiene el valor stretch por default
+
+    align-self => para alinear un elemento, acepta los mismos valores que justify
+
+    justify-items => para alinear todos los elementos horizontalmente
+
+    align-items => para alinear todos los elementos verticalmente
+*/
+
+.container {
+    font-size: 40px;
+    width: 100%;
+    background: lightgray;
+    display: grid;    
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 200px 200px;
+    grid-gap: 10px;
+    /* Centra los items horizontalmente */
+    justify-items: end;
+    align-items: end;
+    /* Centra los items verticalmente */
+
+}
+.d1 {
+    background: aqua;
+    /* aplica justify-self */
+}
+.d2 {
+    background: blue;
+}
+.d3 {
+    background: coral;    
+}
+.d4 {
+    background: cornflowerblue;
+    /* aplica align-self */
+}
+.d5 {
+    background: brown;
+}
+.d6 {
+    background: orange;
+}
