@@ -5,7 +5,12 @@
     --color-gris-facebook: #f0f2f5;
     --color-blanco: #ffffff;
     --color-negro: #000000;
-    --color-azul-facebook-hover: #166fe5;
+    --color-azul-facebook-hover: #e5c216;
+    --color-verde-facebook-hover: #36a420;
+}
+
+body{
+    background: var(--color-gris-facebook);
 }
 
 *{
@@ -17,6 +22,7 @@
 .contenedor{
     display: grid;
     grid-template-columns: repeat(2, 50%);
+    height: 100vh;
 }
 
 .formulario{
@@ -26,10 +32,8 @@
     align-items: center;
 }
 
-.btn-inicio-sesion{
-    width: 400px;/*lo van a cuadrar ustedes*/
-    height: 52px;
-    background-color: var(--color-azul-facebook);
+.btn-inicio-sesion,
+.btn-crear-cuenta{
     color: var(--color-blanco);
     font-size: 20px;
     font-weight: bold;
@@ -38,6 +42,60 @@
     transition: all 200ms;
 }
 
+.btn-inicio-sesion{
+    width: 330px;
+    height: 52px;
+    background-color: var(--color-azul-facebook);
+}
+
 .btn-inicio-sesion:hover{
     background-color: var(--color-azul-facebook-hover);
+}
+
+.seccion-1, 
+.seccion-2,
+.fondo-blanco{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.seccion-2,
+.fondo-blanco{
+    flex-direction: column;
+}
+
+.fondo-blanco{
+    background: var(--color-blanco);
+}
+
+.separador{
+    border-top: 1px solid #808080;
+    margin: 30px 0;
+    width: 80%;
+}
+
+.enlace-olvide{
+    padding: 20px 0 0;
+}
+.formulario input[type="email"],
+.formulario input[type="password"]{
+    padding: 14px 16px;
+    width: 330px;
+    outline: 1px solid var(--color-gris-facebook);
+    margin: 5px 0;
+}
+
+.formulario input:focus-visible{
+    border: 1px solid var(--color-azul-facebook);
+}
+
+.btn-crear-cuenta{
+    background-color: var(--color-verde-facebook);
+    width: 190px;
+    height: 50px;
+}
+
+.btn-crear-cuenta:hover{
+    background-color: var(--color-verde-facebook-hover);
 }
