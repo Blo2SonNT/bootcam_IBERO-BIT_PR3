@@ -1,0 +1,152 @@
+/* .contenedor{
+    background-color: #1ed3cd;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@media (min-width: 700px) and (max-width: 800px) and (orientation: landscape){
+    .cuadro1{
+        background-color: #22fe00 !important;
+    }
+    
+    .cuadro2{
+        background-color: #337ae4 !important;
+    }
+}
+
+@media (max-width: 992px) {
+
+    .contenedor{
+        flex-direction: column;
+    }
+
+    .cuadro1{
+        background-color: #22fe00 !important;
+    }
+    
+    .cuadro2{
+        background-color: #337ae4 !important;
+    }
+} 
+
+.cuadro1{
+    width: 500px;
+    height: 500px;
+    background-color: #fefa00;
+}
+
+.cuadro2{
+    width: 250px;
+    height: 250px;
+    background-color: #e45933;
+} */
+
+.titulo-nombre{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 3rem;
+    text-align: center;
+    white-space: nowrap;
+}
+
+.texto-parrafo{
+    width: 90%;
+    font-size: 1rem;
+    font-family: 'Courier New', Courier, monospace;
+    margin: auto;
+}
+
+
+@media (min-width: 1200px){
+    .titulo-nombre{
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 5rem;
+        text-align: center;
+    }
+    
+    .texto-parrafo{
+        width: 60%;
+        font-size: 3rem;
+        font-family: 'Courier New', Courier, monospace;
+        margin: auto;
+    }
+}
+
+.lista-menu li{
+    display: inline-block;
+}
+
+@media (max-width: 992px){
+    .lista-menu li{
+        /* display: list-item;
+        list-style-type: none; */
+        display: none;
+        /* visibility: hidden; */
+    }
+}
+
+@font-face {
+    font-family: face;
+    src: url();
+}
+
+/* @keyframes agrandar {
+    from {width: 200px;}
+    to { width: 400px;}
+} */
+
+@keyframes agrandar{
+    0% {
+        width: 200px;
+        background-color: aqua;
+    }
+
+    25% {
+        width: 400px;
+        background-color: chartreuse;
+    }
+
+    58%{
+        height: 300px;
+        width: 500px;
+        background-color: darkorchid;
+    }
+
+    70% {
+        width: 400px;
+        height: 250px;
+    }
+
+    100%{
+        width: 200px;
+        height: 200px;
+        background-color: aqua;
+    }
+}
+
+.cuadro2{
+    width: 200px;
+    height: 200px;
+    background-color: #e45933;
+    animation: agrandar 3s infinite;
+} 
+
+.pepe{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+@keyframes texto {
+    to {
+        font-family: Arial, Helvetica, sans-serif;
+        color: #000;
+    }
+
+    from {
+        font-family: 'Courier New', Courier, monospace;
+        color: #fff;
+    }
+}
+
+.texto-animado{
+    animation: texto 3s infinite;
+}
