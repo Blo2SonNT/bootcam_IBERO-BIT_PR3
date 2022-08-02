@@ -1,0 +1,21 @@
+.text-justify{
+    text-align: justify;
+}
+
+.lista-estilo-footer, .lista-estilo-footer li{
+    background-color: transparent !important;
+}
+
+.footer{
+    background-color: #187495;
+}
+
+.footer *{
+    color: #fff;
+}
+
+
+.main-contenedor{
+    margin-top: 10%;
+    margin-bottom: 10%;
+}
