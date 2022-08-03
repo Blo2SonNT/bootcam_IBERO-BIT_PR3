@@ -42,8 +42,10 @@ function registrarUsuario(){
             generarError(claseApellidos)
             console.log(apellidos.value)
             //tipo de documento
-            if(tipoDocumento.options[0].value === ''){
+            if(tipoDocumento.value === ''){
                 alert('selecciona un campo')
+            }else if(tipoDocumento.value === 'cc' || tipoDocumento.value === 'ce' || tipoDocumento.value === 'pasaporte'){
+                alert('seleccionaste una opcion')
             }
         }else{
             generarError(claseApellidos, 'Error! los apellidos no pueden estar vacios')
