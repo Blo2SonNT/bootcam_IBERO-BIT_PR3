@@ -23,6 +23,9 @@ var clasePassword = document.querySelector('.password')
 var claseVerificarPassword = document.querySelector('.verificarPassword')
 var claseSede = document.querySelector('.sede')
 
+var claseTipoDocumento = document.querySelector('.tipo-documento')
+var claseCargo = document.querySelector('.cargo')
+
 function generarError(elemento, mensaje = ''){
     if( mensaje != '' ){
         elemento.lastElementChild.innerHTML = `<span class="text-danger"> ${mensaje} </span>`
