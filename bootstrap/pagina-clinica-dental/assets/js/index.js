@@ -40,20 +40,25 @@ function registrarUsuario(){
     if( nombre.value != '' ){
         generarError(claseNombre)
         console.log(nombre.value)
-        //validacion de los apellidos
-        if( apellidos.value != '' ){
-            generarError(claseApellidos)
-            console.log(apellidos.value)
-            //tipo de documento
-            if(tipoDocumento.value === ''){
-                alert('selecciona un campo')
-            }else if(tipoDocumento.value === 'cc' || tipoDocumento.value === 'ce' || tipoDocumento.value === 'pasaporte'){
-                alert('seleccionaste una opcion')
-            }
-        }else{
-            generarError(claseApellidos, 'Error! los apellidos no pueden estar vacios')
-        }
     }else{
         generarError(claseNombre, 'Error! el nombre no puede estar vacío')
     }
+    //validacion de los apellidos
+    if( apellidos.value != '' ){
+        generarError(claseApellidos)
+        console.log(apellidos.value)
+    }
+    else{
+        generarError(claseApellidos, 'Error! los apellidos no pueden estar vacios')
+    }
+    //tipo de documento
+    if(tipoDocumento.value === ''){
+        generarError(claseTipoDocumento, 'Selecciona una opción!')
+    }else if(tipoDocumento.value === 'cc' || tipoDocumento.value === 'ce' || tipoDocumento.value === 'pasaporte'){
+        generarError(claseTipoDocumento)
+    }
+        
+            
+    
+        
 }
