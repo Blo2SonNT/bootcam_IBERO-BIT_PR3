@@ -35,13 +35,14 @@ var regExpContraseña = /^[A-Za-z0-9]/
 //funcion registrar usuario
 function generarError(elemento, mensaje = ''){
     if( mensaje != '' ){
-        elemento.lastElementChild.innerHTML = `<span class="text-danger"> ${mensaje} </span>`
+        elemento.lastElementChild.innerHTML = `<span class="text-danger existe_error"> ${mensaje} </span>`
     }else{
         elemento.lastElementChild.innerHTML = mensaje
     }
 }
 
 function registrarUsuario(){    
+    var valido = false;
     //validacion del nombre    
     if( nombre.value != '' ){
         generarError(claseNombre)
@@ -127,5 +128,18 @@ function registrarUsuario(){
     }
 
     //guardar datos en localstorage
-        
+        var valida_formulario = !!document.querySelector(".existe_error")
+        console.log(valida_formulario)
+        if(valida_formulario == false){
+            localStorage.setItem("nombre", nombre.value)
+            localStorage.setItem("apellido", apellidos.value)
+            localStorage.setItem("tipo_documento", tipoDocumento.value)
+            localStorage.setItem("numero_doc", numeroDocumento.value)
+            localStorage.setItem("fecha_nacimiento", fecha.value)
+            localStorage.setItem("correo", email.value)
+            localStorage.setItem("cargo", cargo.value)
+            localStorage.setItem("sede", sede.value)
+            localStorage.setItem("pass", password.value)
+            localStorage.setItem("telefono", numeroContacto.value)
+        }
 }
