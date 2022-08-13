@@ -9,11 +9,63 @@
 </head>
 
 <body>
-    <div class="container">
+    <div class="container bg-warning">
+        <h1>Punto 1</h1>
         <input type="number" min="1" class="form-control" id="numero_ejercicio">
         <button class="btn btn-warning fw-bold" onclick="sumatoria_ejercicio1()">Calcular</button>
         <h1 id="total_sumatoria_resultado"></h1>
     </div>
+
+    <section class="container">
+        <h1>Punto 3 Pizzeria</h1>
+        <div class="row">
+            <div class="mb-3 col-3">
+                <label for="edad_pizzeria" class="form-label">Digite la edad</label>
+                <input type="number" class="form-control" id="edad_pizzeria">
+            </div>
+            <div class="col-5">
+                <label for="edad_pizzeria" class="form-label">Sexo del usuario</label>
+                <select class="form-select" id="sexo_pizzeria">
+                    <option selected disabled>Seleccione sexo</option>
+                    <option value="hombre">es hombre</option>
+                    <option value="mujer">es mujer</option>
+                </select>
+            </div>
+            <div class="col-2">
+                <button class="btn btn-dark fw-bold" onclick="pizzeria_pepitos()">Validar info</button>
+            </div>
+            <h3 id="resultado_pizzeria"></h3>
+        </div>
+    </section>
+
+    <section class="container">
+        <h1>Ejercicio 4</h1>
+        <div class="row">
+            <div class="mb-3 col-3">
+                <label for="pedido_comida" class="form-label">Digite lo que desea comer</label>
+                <input type="text" class="form-control" id="pedido_comida">
+            </div>
+            <div class="col-3">
+                <button class="btn btn-warning fw-bold" onclick="solicitar_comida()">Solicitar</button>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="container">
+        <div class="mb-3 col-1">
+            <label for="numero_tabla" class="form-label">Digite la tabla que desea</label>
+            <input type="number" class="form-control" id="numero_tabla">
+        </div>
+        <div class="mb-3 col-1">
+            <label for="limite_tabla" class="form-label">Digite hasta donde la desea</label>
+            <input type="number" class="form-control" id="limite_tabla">
+        </div>
+        <button class="btn btn-primary" onclick="generar_tabla()">Generar tabla de multiplicar</button>
+        <div id="resultado_tabla"></div>
+    </section>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
     <script src="code.js"></script>
 </body>
