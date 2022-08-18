@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>This en nuestra logica</title>
+</head>
+
+<body>
+    <script>
+        const objeto_pepe = {
+            numero: 85,
+            numero2: 40,
+            funcion: function(operacion) {
+                if (operacion == 'multiplicacion') {
+                    return this.numero * this.numero2
+                }
+            }
+        }
+        console.log(objeto_pepe.funcion('multiplicacion'))
+    </script>
+</body>
+
+</html>
