@@ -49,3 +49,15 @@ function crear_botones(url_pagina_siguiente, url_pagina_anterior) {
 }
 
 consumo_api_total("https://rickandmortyapi.com/api/character")
+
+
+let btnBusqueda = document.querySelector("#btn-busqueda-api")
+btnBusqueda.addEventListener("click", () => {
+    let estado = document.querySelector("#estado").value
+    let busqueda = document.querySelector("#busquedaTexto").value
+    if (estado == '') {
+        consumo_api_total("https://rickandmortyapi.com/api/character/?name=" + busqueda)
+    } else {
+        consumo_api_total(`https://rickandmortyapi.com/api/character/?name=${busqueda}&status=${estado}`)
+    }
+})

@@ -27,8 +27,15 @@
 
                 </ul>
                 <form class="d-flex" role="search">
-                    <input class="form-control me-2" type="search" placeholder="Search">
-                    <button class="btn btn-warning" type="submit">Buscar</button>
+                    <select class="form-select" id="estado">
+                        <option value="">Seleccione una...</option>
+                        <option value="alive">Vivos</option>
+                        <option value="dead">Muertos</option>
+                        <option value="unknown">Desconocido</option>
+                    </select>
+                    <input class="form-control me-2" type="search" placeholder="Search" id="busquedaTexto">
+                    <button class="btn btn-warning" type="button" id="btn-busqueda-api">Buscar</button>
+
                 </form>
             </div>
         </div>
