@@ -1,0 +1,80 @@
+
+function consumo_api_total(){
+    let poke_api = "https://pokeapi.co/api/v2/pokemon/"
+    let poke = fetch(poke_api)
+    poke.then(res_poke => res_poke.json())
+        .then((assortPokemon1) => {
+            for(const typePokemon of assortPokemon1.results){
+                let assortPokemon2 = fetch(typePokemon.url)
+                assortPokemon2.then(res_poke2 => res_poke2.json())
+                    .then((assortPokemon3) => {
+                        document.querySelector("#cartePersonnage").innerHTML +=`
+                        <div class="card m-3" style="width: 18rem;">
+                        <img src="${assortPokemon3.sprites.other. home.front_shiny}" class="card-img-top" alt="pokemon-img">
+                        <div class="card-body bg-warning mb-2 ">
+                            <h5 class="card-title">son nom est :  ${assortPokemon3.name}</h5>
+                            <div class="row">
+                                <div class="col-6">
+                                    <p class="card-text">H.P. : 
+                                    <div class="progress">
+                                    <div class="progress-bar progress-bar-striped" role="progressbar" aria-label="Info striped example" style="width: ${assortPokemon3.stats[5].base_stat}%" aria-valuenow="" aria-valuemin="0" aria-valuemax="100">${assortPokemon3.stats[5].base_stat}</div>
+                                    </div></p>
+                                    <p class="card-text">attack : <div class="progress">
+                                    <div class="progress-bar progress-bar-striped bg-success" role="progressbar" aria-label="Info striped example" style="width: ${assortPokemon3.stats[1].base_stat}%" aria-valuenow="" aria-valuemin="0" aria-valuemax="100">${assortPokemon3.stats[1].base_stat}</div>
+                                    </div></p>
+                                    </div>
+                                    <div class="col-6">
+                                    <p class="card-text">Defense : 
+                                    <div class="progress">
+                                    <div class="progress-bar progress-bar-striped bg-danger" role="progressbar" aria-label="Info striped example" style="width: ${assortPokemon3.stats[2].base_stat}%" aria-valuenow="" aria-valuemin="0" aria-valuemax="100">${assortPokemon3.stats[2].base_stat}</div>
+                                    </div></p>
+                                    <p class="card-text">Speed : 
+                                    <div class="progress">
+                                    <div class="progress-bar progress-bar-striped bg-info" role="progressbar" aria-label="Info striped example" style="width: ${assortPokemon3.stats[0].base_stat}%" aria-valuenow="" aria-valuemin="0" aria-valuemax="100">${assortPokemon3.stats[0].base_stat}</div>
+                                    </div></p>
+                                </div>
+
+
+                            </div>
+                    </div>
+                </div>
+                        `
+                })
+            }
+            crear_botones("poke_api.previous", "poke_api.next");
+        })
+        
+}
+
+consumo_api_total('https://pokeapi.co/api/v2/pokemon/')
+
+
+function crear_botones(url_pagina_anterior, url_pagina_siguiente){
+    let div_paginacion = document.querySelector("#paginacion")
+    let btn_anterior = document.createElement("button")
+    div_paginacion.innerHTML =''
+    if(url_pagina_anterior != null){
+        btn_anterior.setAttribute("onclick", 'consumo_api_total(${url_pagina_anterior})' )
+    }else{
+        btn_anterior.setAttribute("disabled", '')
+    }
+    btn_anterior.classList.add("btn","btn-warning", "col-2")
+    btn_anterior.innerText = 'Preview'
+    div_paginacion.appendChild(btn_anterior)
+
+    let btn_siguiente = document.createElement("button")
+    if(url_pagina_siguiente != null){
+        btn_siguiente.setAttribute("onclick", 'consumo_api_total(${url_pagina_siguiente})' )
+    }else{
+        btn_siguiente.setAttribute("disabled", '')
+    }
+    btn_siguiente.classList.add("btn","btn-warning", "col-2")
+    btn_siguiente.innerText = 'NeXt'
+    div_paginacion.appendChild(btn_siguiente)
+
+}
+
+// let btnBusqueda = document.querySelector("btn-busqueda-api")
+// btnBusqueda.addEventListener("click", )
+
+
