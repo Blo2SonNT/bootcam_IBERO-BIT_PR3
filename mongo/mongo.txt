@@ -1,0 +1,472 @@
+Please enter a MongoDB connection string (Default: mongodb://localhost/):
+
+Current Mongosh Log ID: 6317d99a0735ced85bba75d2
+Connecting to:          mongodb://127.0.0.1:27017/?directConnection=true&serverSelectionTimeoutMS=2000&appName=mongosh+1.5.4
+Using MongoDB:          6.0.1
+Using Mongosh:          1.5.4
+
+For mongosh info see: https://docs.mongodb.com/mongodb-shell/
+
+------
+   The server generated these startup warnings when booting
+   2022-09-06T18:36:39.221-05:00: Access control is not enabled for the database. Read and write access to data and configuration is unrestricted
+   2022-09-06T18:36:39.221-05:00: This server is bound to localhost. Remote systems will be unable to connect to this server. Start the server with --bind_ip <address> to specify which IP addresses it should serve responses from, or with --bind_ip_all to bind to all interfaces. If this behavior is desired, start the server with --bind_ip 127.0.0.1 to disable this warning
+------
+
+------
+   Enable MongoDB's free cloud-based monitoring service, which will then receive and display
+   metrics about your deployment (disk utilization, CPU, operation statistics, etc).
+
+   The monitoring data will be available on a MongoDB website with a unique URL accessible to you
+   and anyone you share the URL with. MongoDB may use this information to make product
+   improvements and to suggest MongoDB products and deployment options to you.
+
+   To enable free monitoring, run the following command: db.enableFreeMonitoring()
+   To permanently disable this reminder, run the following command: db.disableFreeMonitoring()
+------
+
+Warning: Found ~/.mongorc.js, but not ~/.mongoshrc.js. ~/.mongorc.js will not be loaded.
+  You may want to copy or rename ~/.mongorc.js to ~/.mongoshrc.js.
+test> show dbs
+admin              40.00 KiB
+config             72.00 KiB
+local              72.00 KiB
+proyectoBootcamp  152.00 KiB
+test> use proyectoBootcamp
+switched to db proyectoBootcamp
+proyectoBootcamp> show collections
+canciones
+docentes
+estudiantes
+proyectoBootcamp> use pepe
+switched to db pepe
+pepe> use proyectoBootcamp
+switched to db proyectoBootcamp
+proyectoBootcamp> show collections
+canciones
+docentes
+estudiantes
+proyectoBootcamp> db.canciones.find()
+[
+  {
+    _id: ObjectId("6316aa5f2cb65a5f71535595"),
+    nombre: 'Deep in love',
+    artista: 'Tom boxer',
+    lanzamiento: 2020
+  },
+  {
+    _id: ObjectId("6316aa5f2cb65a5f71535596"),
+    nombre: 'Rene',
+    artista: 'Residente',
+    lanzamiento: 2018
+  },
+  {
+    _id: ObjectId("6316aa5f2cb65a5f71535597"),
+    nombre: 'Planet 9',
+    artista: 'Adam Port',
+    lanzamiento: 2015
+  }
+]
+proyectoBootcamp> db.canciones.find().pretty()
+[
+  {
+    _id: ObjectId("6316aa5f2cb65a5f71535595"),
+    nombre: 'Deep in love',
+    artista: 'Tom boxer',
+    lanzamiento: 2020
+  },
+  {
+    _id: ObjectId("6316aa5f2cb65a5f71535596"),
+    nombre: 'Rene',
+    artista: 'Residente',
+    lanzamiento: 2018
+  },
+  {
+    _id: ObjectId("6316aa5f2cb65a5f71535597"),
+    nombre: 'Planet 9',
+    artista: 'Adam Port',
+    lanzamiento: 2015
+  }
+]
+proyectoBootcamp> db.canciones.find({"lanzamiento":{$gte: 2018}})
+[
+  {
+    _id: ObjectId("6316aa5f2cb65a5f71535595"),
+    nombre: 'Deep in love',
+    artista: 'Tom boxer',
+    lanzamiento: 2020
+  },
+  {
+    _id: ObjectId("6316aa5f2cb65a5f71535596"),
+    nombre: 'Rene',
+    artista: 'Residente',
+    lanzamiento: 2018
+  }
+]
+proyectoBootcamp> db.canciones.find({"lanzamiento":{$gt: 2018}})
+[
+  {
+    _id: ObjectId("6316aa5f2cb65a5f71535595"),
+    nombre: 'Deep in love',
+    artista: 'Tom boxer',
+    lanzamiento: 2020
+  }
+]
+proyectoBootcamp> db.canciones.find({"lanzamiento":{$ne: 2018}})
+[
+  {
+    _id: ObjectId("6316aa5f2cb65a5f71535595"),
+    nombre: 'Deep in love',
+    artista: 'Tom boxer',
+    lanzamiento: 2020
+  },
+  {
+    _id: ObjectId("6316aa5f2cb65a5f71535597"),
+    nombre: 'Planet 9',
+    artista: 'Adam Port',
+    lanzamiento: 2015
+  }
+]
+proyectoBootcamp> db.canciones.updateOne({"_id": ObjectId("6316aa5f2cb65a5f71535597")}, {disqueras: ["disquera pepe", "disquera fulano"]})
+MongoInvalidArgumentError: Update document requires atomic operators
+proyectoBootcamp> db.canciones.updateOne({"_id": ObjectId("6316aa5f2cb65a5f71535597")}, {$set:{disqueras: ["disquera pepe", "disquera fulano"]}})
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 1,
+  modifiedCount: 1,
+  upsertedCount: 0
+}
+proyectoBootcamp> db.canciones.find()
+[
+  {
+    _id: ObjectId("6316aa5f2cb65a5f71535595"),
+    nombre: 'Deep in love',
+    artista: 'Tom boxer',
+    lanzamiento: 2020
+  },
+  {
+    _id: ObjectId("6316aa5f2cb65a5f71535596"),
+    nombre: 'Rene',
+    artista: 'Residente',
+    lanzamiento: 2018
+  },
+  {
+    _id: ObjectId("6316aa5f2cb65a5f71535597"),
+    nombre: 'Planet 9',
+    artista: 'Adam Port',
+    lanzamiento: 2015,
+    disqueras: [ 'disquera pepe', 'disquera fulano' ]
+  }
+]
+proyectoBootcamp> db.canciones.updateOne({"_id": ObjectId("6316aa5f2cb65a5f71535595")}, {$set: {disqueras: ["disquera juan", "disquera pepe"]}})
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 1,
+  modifiedCount: 1,
+  upsertedCount: 0
+}
+proyectoBootcamp> db.canciones.find()
+[
+  {
+    _id: ObjectId("6316aa5f2cb65a5f71535595"),
+    nombre: 'Deep in love',
+    artista: 'Tom boxer',
+    lanzamiento: 2020,
+    disqueras: [ 'disquera juan', 'disquera pepe' ]
+  },
+  {
+    _id: ObjectId("6316aa5f2cb65a5f71535596"),
+    nombre: 'Rene',
+    artista: 'Residente',
+    lanzamiento: 2018
+  },
+  {
+    _id: ObjectId("6316aa5f2cb65a5f71535597"),
+    nombre: 'Planet 9',
+    artista: 'Adam Port',
+    lanzamiento: 2015,
+    disqueras: [ 'disquera pepe', 'disquera fulano' ]
+  }
+]
+proyectoBootcamp> db.canciones.find({"lanzamiento": {$in:[2020, 2015]}})
+[
+  {
+    _id: ObjectId("6316aa5f2cb65a5f71535595"),
+    nombre: 'Deep in love',
+    artista: 'Tom boxer',
+    lanzamiento: 2020,
+    disqueras: [ 'disquera juan', 'disquera pepe' ]
+  },
+  {
+    _id: ObjectId("6316aa5f2cb65a5f71535597"),
+    nombre: 'Planet 9',
+    artista: 'Adam Port',
+    lanzamiento: 2015,
+    disqueras: [ 'disquera pepe', 'disquera fulano' ]
+  }
+]
+proyectoBootcamp> db.canciones.find({"disqueras": {$all: ["disquera pepe"]}})
+[
+  {
+    _id: ObjectId("6316aa5f2cb65a5f71535595"),
+    nombre: 'Deep in love',
+    artista: 'Tom boxer',
+    lanzamiento: 2020,
+    disqueras: [ 'disquera juan', 'disquera pepe' ]
+  },
+  {
+    _id: ObjectId("6316aa5f2cb65a5f71535597"),
+    nombre: 'Planet 9',
+    artista: 'Adam Port',
+    lanzamiento: 2015,
+    disqueras: [ 'disquera pepe', 'disquera fulano' ]
+  }
+]
+proyectoBootcamp> db.canciones.find({"disqueras": {$all: ["disquera fulano"]}})
+[
+  {
+    _id: ObjectId("6316aa5f2cb65a5f71535597"),
+    nombre: 'Planet 9',
+    artista: 'Adam Port',
+    lanzamiento: 2015,
+    disqueras: [ 'disquera pepe', 'disquera fulano' ]
+  }
+]
+proyectoBootcamp> db.canciones.find({"disqueras": {$in: ["disquera fulano"]}})
+[
+  {
+    _id: ObjectId("6316aa5f2cb65a5f71535597"),
+    nombre: 'Planet 9',
+    artista: 'Adam Port',
+    lanzamiento: 2015,
+    disqueras: [ 'disquera pepe', 'disquera fulano' ]
+  }
+]
+proyectoBootcamp> db.canciones.updateOne({
+...     "_id": ObjectId("6316aa5f2cb65a5f71535597")
+... },
+... {
+.....     $set:{
+.......         albumnes : [
+.......             {nombre: "album1", year: 1998},
+.......             {nombre: "album2", year: 2012}
+.......         ]
+.......     }
+..... }
+...
+... )
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 1,
+  modifiedCount: 1,
+  upsertedCount: 0
+}
+proyectoBootcamp> db.canciones.find()
+[
+  {
+    _id: ObjectId("6316aa5f2cb65a5f71535595"),
+    nombre: 'Deep in love',
+    artista: 'Tom boxer',
+    lanzamiento: 2020,
+    disqueras: [ 'disquera juan', 'disquera pepe' ]
+  },
+  {
+    _id: ObjectId("6316aa5f2cb65a5f71535596"),
+    nombre: 'Rene',
+    artista: 'Residente',
+    lanzamiento: 2018
+  },
+  {
+    _id: ObjectId("6316aa5f2cb65a5f71535597"),
+    nombre: 'Planet 9',
+    artista: 'Adam Port',
+    lanzamiento: 2015,
+    disqueras: [ 'disquera pepe', 'disquera fulano' ],
+    albumnes: [
+      { nombre: 'album1', year: 1998 },
+      { nombre: 'album2', year: 2012 }
+    ]
+  }
+]
+proyectoBootcamp> db.canciones.find({albumnes.nombre: {$all: ["disquera fulano"]}})
+Uncaught:
+SyntaxError: Unexpected token, expected "," (1:27)
+
+> 1 | db.canciones.find({albumnes.nombre: {$all: ["disquera fulano"]}})
+    |                            ^
+  2 |
+
+proyectoBootcamp> db.canciones.find({albumnes.nombre: {$all: ["album1"]}})
+Uncaught:
+SyntaxError: Unexpected token, expected "," (1:27)
+
+> 1 | db.canciones.find({albumnes.nombre: {$all: ["album1"]}})
+    |                            ^
+  2 |
+
+proyectoBootcamp> db.canciones.find({"albumnes.nombre": {$all: ["album1"]}})
+[
+  {
+    _id: ObjectId("6316aa5f2cb65a5f71535597"),
+    nombre: 'Planet 9',
+    artista: 'Adam Port',
+    lanzamiento: 2015,
+    disqueras: [ 'disquera pepe', 'disquera fulano' ],
+    albumnes: [
+      { nombre: 'album1', year: 1998 },
+      { nombre: 'album2', year: 2012 }
+    ]
+  }
+]
+proyectoBootcamp> db.canciones.find({})
+[
+  {
+    _id: ObjectId("6316aa5f2cb65a5f71535595"),
+    nombre: 'Deep in love',
+    artista: 'Tom boxer',
+    lanzamiento: 2020,
+    disqueras: [ 'disquera juan', 'disquera pepe' ]
+  },
+  {
+    _id: ObjectId("6316aa5f2cb65a5f71535596"),
+    nombre: 'Rene',
+    artista: 'Residente',
+    lanzamiento: 2018
+  },
+  {
+    _id: ObjectId("6316aa5f2cb65a5f71535597"),
+    nombre: 'Planet 9',
+    artista: 'Adam Port',
+    lanzamiento: 2015,
+    disqueras: [ 'disquera pepe', 'disquera fulano' ],
+    albumnes: [
+      { nombre: 'album1', year: 1998 },
+      { nombre: 'album2', year: 2012 }
+    ]
+  }
+]
+proyectoBootcamp>
+
+proyectoBootcamp> db.canciones.find({"artista": /.*port*./})
+
+proyectoBootcamp> db.canciones.find({"artista": /.*port*./i})
+[
+  {
+    _id: ObjectId("6316aa5f2cb65a5f71535597"),
+    nombre: 'Planet 9',
+    artista: 'Adam Port',
+    lanzamiento: 2015,
+    disqueras: [ 'disquera pepe', 'disquera fulano' ],
+    albumnes: [
+      { nombre: 'album1', year: 1998 },
+      { nombre: 'album2', year: 2012 }
+    ]
+  }
+]
+proyectoBootcamp> db.canciones.find({"artista": /.*rt*./i})
+[
+  {
+    _id: ObjectId("6316aa5f2cb65a5f71535596"),
+    nombre: 'Rene',
+    artista: 'Residente',
+    lanzamiento: 2018
+  },
+  {
+    _id: ObjectId("6316aa5f2cb65a5f71535597"),
+    nombre: 'Planet 9',
+    artista: 'Adam Port',
+    lanzamiento: 2015,
+    disqueras: [ 'disquera pepe', 'disquera fulano' ],
+    albumnes: [
+      { nombre: 'album1', year: 1998 },
+      { nombre: 'album2', year: 2012 }
+    ]
+  }
+]
+proyectoBootcamp> db.canciones.find({"artista": /*rt*/i})
+ReferenceError: i is not defined
+proyectoBootcamp> db.canciones.find({"artista": /.rt./i})
+
+proyectoBootcamp> db.canciones.find({"albumnes.nombre": {$all: [/.*bum*./]}})
+[
+  {
+    _id: ObjectId("6316aa5f2cb65a5f71535597"),
+    nombre: 'Planet 9',
+    artista: 'Adam Port',
+    lanzamiento: 2015,
+    disqueras: [ 'disquera pepe', 'disquera fulano' ],
+    albumnes: [
+      { nombre: 'album1', year: 1998 },
+      { nombre: 'album2', year: 2012 }
+    ]
+  }
+]
+proyectoBootcamp> db.canciones.updateOne({ "_id": ObjectId("6316aa5f2cb65a5f71535597") }, { $set: { albumnes: [ { nombre: "ALBUM1", year: 1998 }, { nombre: "ALBUM2", year: 2012 }] } })
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 1,
+  modifiedCount: 1,
+  upsertedCount: 0
+}
+proyectoBootcamp> db.canciones.find()
+[
+  {
+    _id: ObjectId("6316aa5f2cb65a5f71535595"),
+    nombre: 'Deep in love',
+    artista: 'Tom boxer',
+    lanzamiento: 2020,
+    disqueras: [ 'disquera juan', 'disquera pepe' ]
+  },
+  {
+    _id: ObjectId("6316aa5f2cb65a5f71535596"),
+    nombre: 'Rene',
+    artista: 'Residente',
+    lanzamiento: 2018
+  },
+  {
+    _id: ObjectId("6316aa5f2cb65a5f71535597"),
+    nombre: 'Planet 9',
+    artista: 'Adam Port',
+    lanzamiento: 2015,
+    disqueras: [ 'disquera pepe', 'disquera fulano' ],
+    albumnes: [
+      { nombre: 'ALBUM1', year: 1998 },
+      { nombre: 'ALBUM2', year: 2012 }
+    ]
+  }
+]
+proyectoBootcamp> db.canciones.find({"albumnes.nombre": {$all: [/.*bum*./]}})
+
+proyectoBootcamp> db.canciones.find({"albumnes.nombre": {$all: [/.*bum*./i]}})
+[
+  {
+    _id: ObjectId("6316aa5f2cb65a5f71535597"),
+    nombre: 'Planet 9',
+    artista: 'Adam Port',
+    lanzamiento: 2015,
+    disqueras: [ 'disquera pepe', 'disquera fulano' ],
+    albumnes: [
+      { nombre: 'ALBUM1', year: 1998 },
+      { nombre: 'ALBUM2', year: 2012 }
+    ]
+  }
+]
+proyectoBootcamp> db.canciones.find({"albumnes.nombre": {$all: [/.*BUM*./]}})
+[
+  {
+    _id: ObjectId("6316aa5f2cb65a5f71535597"),
+    nombre: 'Planet 9',
+    artista: 'Adam Port',
+    lanzamiento: 2015,
+    disqueras: [ 'disquera pepe', 'disquera fulano' ],
+    albumnes: [
+      { nombre: 'ALBUM1', year: 1998 },
+      { nombre: 'ALBUM2', year: 2012 }
+    ]
+  }
+]
+proyectoBootcamp> db.canciones.find({"albumnes.nombre": {$all: [/.*bum*./i]}})
