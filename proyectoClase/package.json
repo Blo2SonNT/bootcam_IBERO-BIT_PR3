@@ -1,0 +1,19 @@
+{
+    "name": "proyectoclase",
+    "version": "1.0.0",
+    "description": "dashboard para la auditoria de notas y asistencia",
+    "main": "index.js",
+    "scripts": {
+        "dev": "nodemon ."
+    },
+    "author": "Miguel Nieto BIT",
+    "license": "ISC",
+    "devDependencies": {
+        "nodemon": "^2.0.19"
+    },
+    "dependencies": {
+        "dotenv": "^16.0.2",
+        "express": "^4.18.1",
+        "mongoose": "^6.6.0"
+    }
+}
