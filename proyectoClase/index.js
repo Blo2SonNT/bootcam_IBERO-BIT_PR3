@@ -4,11 +4,13 @@ const app = express()
 
 conectarDB()
 
-app.get('/', (req, res) => {
-    res.send('Hola mundo')
-})
+// app.get('/', (req, res) => {
+//     res.send('Hola mundo')
+// })
 
+app.use(express.json())
 
+app.use('/api', require('./routes/routes'))
 
 
 app.listen(4000, () => {
