@@ -1,0 +1,18 @@
+.buscador {
+    border: 3px solid var(--color-negro-pagina);
+    border-radius: 20px;
+}
+
+.circulo-red {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 1px solid rgb(200, 200, 200);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.circulo-red i {
+    font-size: 2rem;
+}
