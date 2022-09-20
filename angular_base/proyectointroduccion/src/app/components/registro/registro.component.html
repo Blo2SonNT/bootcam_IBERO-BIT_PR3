@@ -3,22 +3,28 @@
     <h4 class="py-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis eveniet placeat aperiam. Possimus, vero aliquam similique praesentium modi cum nisi reiciendis soluta. Facilis velit expedita ullam quas, quasi voluptatibus sapiente neque eaque nobis
         corporis incidunt fuga, temporibus corrupti architecto vero obcaecati esse recusandae? Perspiciatis minus dolores voluptas corporis quia quos?</h4>
     <h1 class="text-center fw-bold my-5">Create tu cuenta!</h1>
-    <form class="row g-3">
+    <form class="row g-3" [formGroup]="registroForm" (ngSubmit)="registrarUsurio()">
         <div class="col-12">
             <label for="inputEmail4" class="form-label">Nombre</label>
-            <input type="text" class="form-control" id="inputEmail4">
+            <input type="text" formControlName="nombre" class="form-control" id="inputEmail4">
+            <span class="text-danger fw-bold" *ngIf="registroForm.get('nombre')?.hasError('required') && registroForm.get('nombre')?.touched">Nombre invalido</span>
         </div>
         <div class="col-12">
             <label for="inputPassword4" class="form-label">Correo</label>
-            <input type="email" class="form-control" id="inputPassword4">
+            <input type="email" formControlName="correo" class="form-control" id="inputPassword4">
+            <span class="text-danger fw-bold" *ngIf="registroForm.get('correo')?.hasError('required') && registroForm.get('correo')?.touched">Correo obligatorio</span>
+            <span class="text-danger fw-bold" *ngIf="registroForm.get('correo')?.hasError('pattern')">Correo invalido</span>
         </div>
         <div class="col-12">
             <label for="inputAddress" class="form-label">Contraseña</label>
-            <input type="password" class="form-control" id="inputAddress" placeholder="1234 Main St">
+            <input type="password" formControlName="clave" class="form-control" id="inputAddress" placeholder="1234 Main St">
+            <span *ngIf="registroForm.get('clave')?.hasError('required') && registroForm.get('clave')?.touched" class="text-danger fw-bold">Contraseña obligatoria</span>
+            <span class="text-danger fw-bold" *ngIf="registroForm.get('clave')?.hasError('pattern')">Contraseña invalida</span>
         </div>
         <div class="col-12">
             <label for="inputAddress2" class="form-label">Verifique su contraseña</label>
-            <input type="password" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
+            <input type="password" formControlName="VericarClave" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
+            <!-- <span class="text-danger fw-bold">Contraseña no coincide</span> -->
         </div>
         <div class="col-12">
             <button type="submit" class="btn btn-dark">Sign in</button>
