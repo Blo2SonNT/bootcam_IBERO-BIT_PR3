@@ -27,7 +27,7 @@
             <!-- <span class="text-danger fw-bold">Contraseña no coincide</span> -->
         </div>
         <div class="col-12">
-            <button type="submit" class="btn btn-dark">Sign in</button>
+            <button type="submit" class="btn btn-dark" [disabled]="registroForm.invalid">Sign in</button>
         </div>
     </form>
 </section>

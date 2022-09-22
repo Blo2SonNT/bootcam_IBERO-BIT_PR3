@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-
+import { Usuario } from 'src/app/models/registro';
+import Swal from 'sweetalert2'
 @Component({
     selector: 'app-registro',
     templateUrl: './registro.component.html',
@@ -24,13 +25,34 @@ export class RegistroComponent implements OnInit {
     ngOnInit(): void {
     }
 
-    registrarUsurio(){
-        console.log(this.registroForm.get('clave')?.value)
-        console.log(this.registroForm.get('VericarClave')?.value)
+    registrarUsurio() {
+        // console.log(this.registroForm.get('clave')?.value)
+        // console.log(this.registroForm.get('VericarClave')?.value)
         let varClave = this.registroForm.get('clave')?.value
         let verificar = this.registroForm.get('VericarClave')?.value
-        if(varClave != verificar){
-            console.error("Las contraseñas no coinciden")
+        if (varClave != verificar) {
+            Swal.fire({
+                icon: 'error',
+                title: 'Bruto, bestia, animal salveje',
+                text: 'Sus contraseñas no coinciden... ciego',
+            })
+        } else {
+            if (!this.regexCorreo.test(this.registroForm.get('correo')?.value)) {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Su correo se ve algo sospechoso',
+                    text: 'No se peye!',
+                })
+            } else {
+                const DATA_USUARIO: Usuario = {
+                    nombre: this.registroForm.get('nombre')?.value,
+                    correo: this.registroForm.get('correo')?.value,
+                    clave: this.registroForm.get('clave')?.value
+                }
+
+                console.log(DATA_USUARIO)
+            }
+
         }
     }
 
