@@ -10,6 +10,9 @@ import { IngresoComponent } from './components/ingreso/ingreso.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { FormularioPeliculaComponent } from './components/formulario-pelicula/formulario-pelicula.component';
+import { HttpClientModule } from '@angular/common/http';
+
 
 @NgModule({
   declarations: [
@@ -20,11 +23,13 @@ import { ReactiveFormsModule } from '@angular/forms';
     IngresoComponent,
     NavbarComponent,
     FooterComponent,
+    FormularioPeliculaComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

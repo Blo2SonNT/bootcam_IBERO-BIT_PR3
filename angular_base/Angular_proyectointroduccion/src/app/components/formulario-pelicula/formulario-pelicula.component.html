@@ -1,0 +1,51 @@
+<section class="container">
+    <h1 class="text center fw-bold my-4">Registrar nueva pelicula</h1>
+    <form class="row g-3" [formGroup]="peliculaForm" (ngSubmit)="agregarPelicula()">
+        <div class="col-md-6">
+            <label for="inputEmail4" class="form-label">Titulo</label>
+            <input type="text" class="form-control" formControlName="titulo">
+            <span class="text-danger fw-bold" *ngIf="peliculaForm.get('titulo')?.hasError('required') && peliculaForm.get('titulo')?.touched">Titulo invalido</span>
+        </div>
+        <div class="col-md-6">
+            <label for="inputPassword4" class="form-label">Duracion</label>
+            <input type="number" class="form-control" formControlName="duracion">
+            <span class="text-danger fw-bold" *ngIf="peliculaForm.get('duracion')?.hasError('required') && peliculaForm.get('duracion')?.touched">Duración invalida</span>
+
+        </div>
+        <div class="col-6">
+            <label for="inputAddress" class="form-label">Genero</label>
+            <select class="form-select" formControlName="genero">
+                <option selected disabled>Seleccione una...</option>
+                <option value="Accion">Accion</option>
+                <option value="Terror">Terror</option>
+                <option value="Animacion">Animacion</option>
+                <option value="Suspenso">Suspenso</option>
+                <option value="Fantasia">Fantasia</option>
+                <option value="Romance">Romance</option>
+                <option value="XXX">XXX</option>
+            </select>
+            <span class="text-danger fw-bold" *ngIf="peliculaForm.get('genero')?.hasError('required') && peliculaForm.get('genero')?.touched">Seleccione un genero</span>
+        </div>
+        <div class="col-6">
+            <label for="inputAddress2" class="form-label">Imagen</label>
+            <input type="text" class="form-control" formControlName="imagen">
+            <span class="text-danger fw-bold" *ngIf="peliculaForm.get('imagen')?.hasError('required') && peliculaForm.get('imagen')?.touched">Enlace la imagen invalida</span>
+        </div>
+        <div class="col-md-6">
+            <label for="inputCity" class="form-label">Director</label>
+            <input type="text" class="form-control" formControlName="director">
+            <span class="text-danger fw-bold" *ngIf="peliculaForm.get('director')?.hasError('required') && peliculaForm.get('director')?.touched">Director invalida</span>
+
+        </div>
+        <div class="col-md-6">
+            <label for="inputCity" class="form-label">Año de lanzamiento</label>
+            <input type="number" max="2030" min="1990" class="form-control" formControlName="yearLanzamiento">
+            <span class="text-danger fw-bold" *ngIf="peliculaForm.get('yearLanzamiento')?.hasError('required') && peliculaForm.get('yearLanzamiento')?.touched">Año de lanzamiento invalida</span>
+        </div>
+        <div class="col-12">
+            <div class="d-grid gap-2 mt-4">
+                <button class="btn btn-dark fw-bold" type="submit">Guardar pelicula</button>
+            </div>
+        </div>
+    </form>
+</section>

@@ -4,7 +4,8 @@
     "description": "dashboard para la auditoria de notas y asistencia",
     "main": "index.js",
     "scripts": {
-        "dev": "nodemon ."
+        "dev": "nodemon .",
+        "start": "node ."
     },
     "author": "Miguel Nieto BIT",
     "license": "ISC",
