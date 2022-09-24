@@ -50,7 +50,7 @@ export class RegistroComponent implements OnInit {
                     clave: this.registroForm.get('clave')?.value
                 }
 
-                console.log(DATA_USUARIO)
+                console.log(JSON.stringify(DATA_USUARIO))
             }
 
         }
