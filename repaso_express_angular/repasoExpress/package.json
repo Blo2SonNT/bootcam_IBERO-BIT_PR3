@@ -1,0 +1,24 @@
+{
+    "name": "repasoexpress",
+    "version": "1.0.0",
+    "description": "Repaso de creacion de API REST",
+    "main": "index.js",
+    "scripts": {
+        "dev": "nodemon ."
+    },
+    "keywords": [
+        "api",
+        "rest",
+        "solicitud"
+    ],
+    "author": "Miguel Nieto BIT",
+    "license": "ISC",
+    "devDependencies": {
+        "nodemon": "^2.0.20"
+    },
+    "dependencies": {
+        "dotenv": "^16.0.2",
+        "express": "^4.18.1",
+        "mongoose": "^6.6.2"
+    }
+}
