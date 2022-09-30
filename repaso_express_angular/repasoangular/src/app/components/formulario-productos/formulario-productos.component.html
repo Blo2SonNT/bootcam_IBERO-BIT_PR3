@@ -1,6 +1,6 @@
 <section class="container">
-    <h1 class="fw-bold my-5">CREAR PRODUCTO</h1>
-    <form class="row g-3" [formGroup]="productoForm" (ngSubmit)="agregarProducto()">
+    <h1 class="fw-bold my-5">{{ titulo_formulario | uppercase }}</h1>
+    <form class="row g-3" [formGroup]="productoForm" (ngSubmit)="dataProducto()">
         <div class="col-md-6">
             <label for="inputEmail4" class="form-label">Nombre</label>
             <input type="text" class="form-control" formControlName="nombre">
@@ -28,7 +28,7 @@
             <span class="text-danger fw-bold " *ngIf="productoForm.get('categoria')?.hasError('required') && productoForm.get('categoria')?.touched">Categoria obligatoria... a donde pertenece?</span>
         </div>
         <div class="col-12 ">
-            <button type="submit " class="btn btn-primary" [disabled]="productoForm.invalid">Crear producto</button>
+            <button type="submit " class="btn btn-primary" [disabled]="productoForm.invalid">{{ texto_boton }} producto</button>
         </div>
     </form>
 </section>

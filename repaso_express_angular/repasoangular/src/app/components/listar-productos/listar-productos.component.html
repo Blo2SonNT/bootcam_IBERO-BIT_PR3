@@ -3,8 +3,8 @@
         <h1 class="fw-bold">Lista de productos</h1>
         <button class="btn btn-dark fw-bold" routerLink="/registrar-producto">Registrar producto</button>
     </div>
-
-    <table class="mt-4 table table-responsive table-striped">
+    <h3>Total productos: {{ listaProductos.length }}</h3>
+    <table *ngIf="listaProductos.length > 0" class="mt-4 table table-responsive table-striped">
         <thead>
             <tr>
                 <th>Nombre</th>
@@ -15,35 +15,21 @@
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <th scope="row">1</th>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>@mdo</td>
+            <tr *ngFor="let miproducto of listaProductos">
+                <th>{{ miproducto.nombre }}</th>
+                <td>{{ miproducto.precio }}</td>
+                <td>{{ miproducto.categoria }}</td>
+                <td>{{ miproducto.proveedor }}</td>
                 <td>
-                    <button class="btn btn-warning mx-2 btn-sm">Editar</button>
-                    <button class="btn btn-danger mx-2 btn-sm">Eliminar</button>
-                </td>
-            </tr>
-            <tr>
-                <th scope="row">2</th>
-                <td>Jacob</td>
-                <td>Thornton</td>
-                <td>@fat</td>
-                <td>
-                    <button class="btn btn-warning mx-2 btn-sm">Editar</button>
-                    <button class="btn btn-danger mx-2 btn-sm">Eliminar</button>
-                </td>
-            </tr>
-            <tr>
-                <th scope="row">3</th>
-                <td colspan="2">Larry the Bird</td>
-                <td>@twitter</td>
-                <td>
-                    <button class="btn btn-warning mx-2 btn-sm">Editar</button>
-                    <button class="btn btn-danger mx-2 btn-sm">Eliminar</button>
+                    <button class="btn btn-warning mx-2 btn-sm" [routerLink]="['/editar-producto', miproducto._id]">
+                        <i class="fa-solid fa-pencil mx-2"></i>Editar
+                    </button>
+                    <button class="btn btn-danger mx-2 btn-sm fw-bold" (click)="eliminarProducto(miproducto._id)">
+                        <i class="fa-solid fa-recycle mx-2"></i>Eliminar
+                    </button>
                 </td>
             </tr>
         </tbody>
     </table>
+    <h2 class="text-danger text-center fw-bold" *ngIf="listaProductos.length == 0">No hay productos registrados</h2>
 </section>

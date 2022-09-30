@@ -10,6 +10,8 @@ import { NotFoundComponent } from './components/not-found/not-found.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 
 import { ReactiveFormsModule } from "@angular/forms";
+import { HttpClientModule } from "@angular/common/http";
+import { CatalogoComponent } from './components/catalogo/catalogo.component';
 
 @NgModule({
     declarations: [
@@ -18,12 +20,14 @@ import { ReactiveFormsModule } from "@angular/forms";
         FormularioProductosComponent,
         ListarProductosComponent,
         NotFoundComponent,
-        NavbarComponent
+        NavbarComponent,
+        CatalogoComponent
     ],
     imports: [
         BrowserModule,
         AppRoutingModule,
-        ReactiveFormsModule
+        ReactiveFormsModule,
+        HttpClientModule
     ],
     providers: [],
     bootstrap: [AppComponent]
