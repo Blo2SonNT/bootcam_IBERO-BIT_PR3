@@ -4,6 +4,12 @@
         <button class="btn btn-dark fw-bold" routerLink="/registrar-producto">Registrar producto</button>
     </div>
     <h3>Total productos: {{ listaProductos.length }}</h3>
+
+    <img #imagen class="w-50" src="https://image.jimcdn.com/app/cms/image/transf/dimension=389x1024:format=jpg/path/s63325aede1793f7e/image/i5aa18507d7fef049/version/1479063540/image.jpg" alt="">
+    <button #regulese (click)="calmasion()" class="btn btn-dark fw-bold" type="button">Regulese</button>
+
+
+
     <table *ngIf="listaProductos.length > 0" class="mt-4 table table-responsive table-striped">
         <thead>
             <tr>
@@ -11,7 +17,7 @@
                 <th>Precio</th>
                 <th>Categoria</th>
                 <th>Proveedor</th>
-                <th colspan="2">Acciones</th>
+                <th colspan="3">Acciones</th>
             </tr>
         </thead>
         <tbody>
@@ -27,6 +33,7 @@
                     <button class="btn btn-danger mx-2 btn-sm fw-bold" (click)="eliminarProducto(miproducto._id)">
                         <i class="fa-solid fa-recycle mx-2"></i>Eliminar
                     </button>
+                    <!-- <p #textoInventario (click)="agotar_existencias()">EN EXISTENCIA</p> -->
                 </td>
             </tr>
         </tbody>

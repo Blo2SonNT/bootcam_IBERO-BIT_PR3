@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild, Renderer2 } from '@angular/core';
 import { Producto } from 'src/app/models/producto';
 import { ProductoService } from 'src/app/services/producto.service';
 import Swal from 'sweetalert2';
@@ -9,9 +9,13 @@ import Swal from 'sweetalert2';
 })
 export class ListarProductosComponent implements OnInit {
 
+    @ViewChild('imagen') imagenCris?: ElementRef
+    @ViewChild('regulese') btnRegulese?: ElementRef
+    @ViewChild('textoInventario') btnAgotado?: ElementRef
+
     listaProductos: Producto[] = [];
 
-    constructor(private servicioProducto: ProductoService) { }
+    constructor(private servicioProducto: ProductoService, private renderer2: Renderer2) { }
 
     ngOnInit(): void {
         this.obtenerProductos()
@@ -52,5 +56,16 @@ export class ListarProductosComponent implements OnInit {
             }
         })
     }
+
+
+    calmasion(){
+        const imagen1 = this.imagenCris?.nativeElement
+        this.renderer2.setAttribute(imagen1, 'src', 'https://img.freepik.com/vector-premium/hombre-meditando-sobre-aislado-mantenga-calma-estilo-dibujos-animados_165429-924.jpg')
+    }
+
+    // agotar_existencias(){
+    //     const htmlP = this.btnAgotado?.nativeElement
+    //     this.renderer2.createText("AGOTADO")
+    // }
 
 }

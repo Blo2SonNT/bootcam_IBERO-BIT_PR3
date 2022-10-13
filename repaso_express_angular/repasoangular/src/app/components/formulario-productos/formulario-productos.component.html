@@ -4,17 +4,20 @@
         <div class="col-md-6">
             <label for="inputEmail4" class="form-label">Nombre</label>
             <input type="text" class="form-control" formControlName="nombre">
-            <span class="text-danger fw-bold" *ngIf="productoForm.get('nombre')?.hasError('required') && productoForm.get('nombre')?.touched">Nombre obligatorio... bestia</span>
+            <span class="text-danger fw-bold" *ngIf="productoForm.get('nombre')?.hasError('required') && productoForm.get('nombre')?.touched">Nombre
+                obligatorio... bestia</span>
         </div>
         <div class=" col-md-6 ">
             <label for="inputPassword4 " class="form-label ">Precio</label>
             <input type="number " class="form-control " formControlName="precio">
-            <span class="text-danger fw-bold " *ngIf="productoForm.get('precio')?.hasError('required') && productoForm.get('precio')?.touched">Precio obligatorio... que va a cobrar?</span>
+            <span class="text-danger fw-bold " *ngIf="productoForm.get('precio')?.hasError('required') && productoForm.get('precio')?.touched">Precio
+                obligatorio... que va a cobrar?</span>
         </div>
         <div class="col-6 ">
             <label for="inputAddress " class="form-label ">Proveedor</label>
             <input type="text " class="form-control " formControlName="proveedor">
-            <span class="text-danger fw-bold " *ngIf="productoForm.get('proveedor')?.hasError('required') && productoForm.get('proveedor')?.touched">Proveedor obligatorio... quien se lo trae... dios?</span>
+            <span class="text-danger fw-bold " *ngIf="productoForm.get('proveedor')?.hasError('required') && productoForm.get('proveedor')?.touched">Proveedor
+                obligatorio... quien se lo trae... dios?</span>
         </div>
         <div class="col-6 ">
             <label for="inputAddress2 " class="form-label ">Categoria</label>
@@ -25,10 +28,20 @@
                 <option value="Frutas ">Frutas</option>
                 <option value="Perecederos ">Perecederos</option>
             </select>
-            <span class="text-danger fw-bold " *ngIf="productoForm.get('categoria')?.hasError('required') && productoForm.get('categoria')?.touched">Categoria obligatoria... a donde pertenece?</span>
+            <span class="text-danger fw-bold " *ngIf="productoForm.get('categoria')?.hasError('required') && productoForm.get('categoria')?.touched">Categoria
+                obligatoria... a donde pertenece?</span>
+        </div>
+        <div class="col-2">
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="popo" formControlName="pepe" id="flexCheckDefault">
+                <label class="form-check-label" for="flexCheckDefault">
+                    HOLA
+                </label>
+            </div>
         </div>
         <div class="col-12 ">
-            <button type="submit " class="btn btn-primary" [disabled]="productoForm.invalid">{{ texto_boton }} producto</button>
+            <button type="submit " class="btn btn-primary" [disabled]="productoForm.invalid">{{ texto_boton }}
+                producto</button>
         </div>
     </form>
 </section>
