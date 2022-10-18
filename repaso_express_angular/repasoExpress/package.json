@@ -4,7 +4,8 @@
     "description": "Repaso de creacion de API REST",
     "main": "index.js",
     "scripts": {
-        "dev": "nodemon ."
+        "dev": "nodemon .",
+        "start": "node ."
     },
     "keywords": [
         "api",

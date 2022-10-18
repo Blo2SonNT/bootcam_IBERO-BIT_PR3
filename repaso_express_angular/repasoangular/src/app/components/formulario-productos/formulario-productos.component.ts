@@ -18,20 +18,19 @@ export class FormularioProductosComponent implements OnInit {
     texto_boton = "Crear"
 
 
-    constructor(private fb: FormBuilder, private servicioProducto: ProductoService, private idRoute: ActivatedRoute, private router: Router) {
+    constructor(private fb: FormBuilder, private servicioProducto: ProductoService, private idRoute:ActivatedRoute, private router: Router) {
         this.productoForm = this.fb.group({
             nombre: ['', Validators.required],
             proveedor: ['', Validators.required],
             precio: ['', [Validators.required, Validators.pattern(this.regexNumero)]],
-            categoria: ['', Validators.required],
-            pepe: ['', Validators.required]
+            categoria: ['', Validators.required]
         })
         this.id = this.idRoute.snapshot.paramMap.get('id')
     }
 
     ngOnInit(): void {
         console.log("%c Este console solo se debe de mostrar cuando el componente de crear producto sea llamado", "color: yellow; font-size:1.5rem")
-        // this.accionSolicitada()
+        this.accionSolicitada()
     }
 
     /*
@@ -47,8 +46,51 @@ export class FormularioProductosComponent implements OnInit {
     */
 
     dataProducto() {
-        console.log(this.productoForm)
-
-
+        const PRODUCTO: Producto = {
+            nombre: this.productoForm.get('nombre')?.value,
+            precio: this.productoForm.get('precio')?.value,
+            proveedor: this.productoForm.get('proveedor')?.value,
+            categoria: this.productoForm.get('categoria')?.value
+        }
+        console.log(PRODUCTO)
+        if(this.id == null){
+            this.router.navigate(['/productos'])
+            this.servicioProducto.postProducto(PRODUCTO).subscribe(() => {
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Producto registrado',
+                })
+            }, (error) => {
+                console.log(error)
+            })
+        }else{
+            this.servicioProducto.putProducto(this.id, PRODUCTO).subscribe(() => {
+                this.router.navigate(['/productos'])
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Producto actualizado',
+                })
+            }, (error) => {
+                console.log(error)
+            })
+        }
     }
+
+    accionSolicitada(){
+        if(this.id != null){
+            this.titulo_formulario = 'Actualizar producto'
+            this.texto_boton = 'Actualizar'
+            this.servicioProducto.getProducto(this.id).subscribe((data) => {
+                this.productoForm.setValue({
+                    nombre: data.nombre,
+                    precio: data.precio,
+                    proveedor: data.proveedor,
+                    categoria: data.categoria
+                })
+            }, (error) => {
+                console.log(error)
+            })
+        }
+    }
+
 }

@@ -9,6 +9,7 @@ app.use(express.json())
 
 app.use('/api', require('./routes/routes'))
 
-app.listen(4000, () => {
-    console.log("El servidor se esta ejecutando en http://localhost:4000")
+const puerto = process.env.PORT || 4000
+app.listen(puerto, () => {
+    console.log(`El servidor se esta ejecutando en http://localhost:${puerto}`)
 })

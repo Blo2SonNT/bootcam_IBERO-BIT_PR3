@@ -8,7 +8,7 @@ import { Producto } from "../models/producto";
 })
 export class ProductoService {
 
-    url = 'http://localhost:4000/api'
+    url = 'https://express-iberobitpr3.herokuapp.com/api'
 
     constructor(private http:HttpClient) { }
 
